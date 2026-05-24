@@ -154,12 +154,6 @@
     background-color: var(--warm-black);
   }
   
-  @media (min-width: 1024px) {
-    html {
-      zoom: 90%;
-    }
-  }
-  
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);

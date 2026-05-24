@@ -110,7 +110,7 @@ function Yantra({ triggerEl }: { triggerEl: React.RefObject<HTMLElement | null> 
       viewBox="0 0 500 500"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="mandala-svg w-full h-full max-w-[600px] max-h-[600px] opacity-80 mix-blend-screen"
+      className="mandala-svg w-full h-full max-w-[600px] max-h-[600px] opacity-25 md:opacity-80 mix-blend-screen transition-opacity duration-500"
       aria-hidden="true"
     >
       {/* ── Outer rings ── */}
@@ -325,7 +325,7 @@ export function AboutSection() {
         {/* ── Scrolled Text Blocks ── */}
 
         {/* Text 1 (Left Side) */}
-        <div ref={text1Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6" style={{ willChange: 'filter, transform, opacity' }}>
+        <div ref={text1Ref} className="absolute left-0 md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 w-full md:w-auto max-w-full md:max-w-md z-10 p-6 text-center md:text-left" style={{ willChange: 'filter, transform, opacity' }}>
           <h2 className="font-display text-[var(--white-pure)] text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight mb-4">
             FORGING THE <br />
             <span className="text-[var(--amber-ember)]">NEXT ERA</span>
@@ -336,9 +336,9 @@ export function AboutSection() {
         </div>
 
         {/* Text 2 (Right Side) */}
-        <div ref={text2Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right" style={{ willChange: 'filter, transform, opacity' }}>
-          <div className="flex items-center justify-end gap-3 mb-4">
-            <div className="w-8 h-px bg-[var(--amber-ember)]" />
+        <div ref={text2Ref} className="absolute right-0 md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 w-full md:w-auto max-w-full md:max-w-md z-10 p-6 text-center md:text-right" style={{ willChange: 'filter, transform, opacity' }}>
+          <div className="flex items-center justify-center md:justify-end gap-3 mb-4">
+            <div className="w-8 h-px bg-[var(--amber-ember)] hidden md:block" />
             <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
               NARRATIVE FIRST
             </h3>
@@ -349,12 +349,12 @@ export function AboutSection() {
         </div>
 
         {/* Text 3 (Left Side) */}
-        <div ref={text3Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6" style={{ willChange: 'filter, transform, opacity' }}>
-          <div className="flex items-center justify-start gap-3 mb-4">
+        <div ref={text3Ref} className="absolute left-0 md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 w-full md:w-auto max-w-full md:max-w-md z-10 p-6 text-center md:text-left" style={{ willChange: 'filter, transform, opacity' }}>
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
             <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
               CULTURAL ROOTS
             </h3>
-            <div className="w-8 h-px bg-[var(--amber-ember)]" />
+            <div className="w-8 h-px bg-[var(--amber-ember)] hidden md:block" />
           </div>
           <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
             Drawing from India's 5000-year mythology, we weave authentic elements into modern gameplay.
@@ -362,9 +362,9 @@ export function AboutSection() {
         </div>
 
         {/* Text 4 (Right Side) */}
-        <div ref={text4Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right" style={{ willChange: 'filter, transform, opacity' }}>
-          <div className="flex items-center justify-end gap-3 mb-4">
-            <div className="w-8 h-px bg-[var(--amber-ember)]" />
+        <div ref={text4Ref} className="absolute right-0 md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 w-full md:w-auto max-w-full md:max-w-md z-10 p-6 text-center md:text-right" style={{ willChange: 'filter, transform, opacity' }}>
+          <div className="flex items-center justify-center md:justify-end gap-3 mb-4">
+            <div className="w-8 h-px bg-[var(--amber-ember)] hidden md:block" />
             <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
               GLOBAL VISION
             </h3>
