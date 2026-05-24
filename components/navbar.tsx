@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValueEvent, useMotionValue } from 'framer-motion'
 import Link from 'next/link'
 import { HamburgerMenu } from './ui/hamburger-menu'
 
@@ -74,7 +74,23 @@ export function Navbar() {
 
   // Raw transforms — header shrinks as user scrolls
   const rawTop         = useTransform(scrollY, [0, 120], [20,  12])
-  const rawMarginX     = useTransform(scrollY, [0, 120], [20, 120])
+  
+  // Responsive margin for mobile vs desktop
+  const targetMargin = useMotionValue(120)
+  useEffect(() => {
+    const handleResize = () => {
+      targetMargin.set(window.innerWidth < 768 ? 16 : 120)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  
+  const rawMarginX = useTransform(scrollY, (y) => {
+    const progress = Math.min(Math.max(y / 120, 0), 1)
+    return 20 + progress * (targetMargin.get() - 20)
+  })
+
   const rawHeight      = useTransform(scrollY, [0, 120], [100, 76])
   const rawRadius      = useTransform(scrollY, [0, 120], [ 4,  30])
   const rawBg          = useTransform(scrollY, [0, 120], [0.2, 0.82])

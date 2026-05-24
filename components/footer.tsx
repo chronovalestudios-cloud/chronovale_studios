@@ -115,7 +115,6 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-white/60">
               <li><Link href="#games" className="hover:text-[var(--warm-white)] transition-colors">Our Titles</Link></li>
               <li><Link href="#vision" className="hover:text-[var(--warm-white)] transition-colors">In Development</Link></li>
-              <li><Link href="#" className="hover:text-[var(--warm-white)] transition-colors">Merch Store</Link></li>
             </ul>
           </div>
 
@@ -123,25 +122,7 @@ export function Footer() {
             <h4 className="text-sm font-mono text-[var(--gold)] mb-8 opacity-90">Studio</h4>
             <ul className="space-y-4 text-sm text-white/60">
               <li><Link href="#about" className="hover:text-[var(--warm-white)] transition-colors">About Us</Link></li>
-              <li><Link href="#team" className="hover:text-[var(--warm-white)] transition-colors">Careers</Link></li>
               <li><Link href="#team" className="hover:text-[var(--warm-white)] transition-colors">Leadership</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-mono text-[var(--gold)] mb-8 opacity-90">Community</h4>
-            <ul className="space-y-4 text-sm text-white/60">
-              <li><Link href="#" className="hover:text-[var(--warm-white)] transition-colors">Discord Server</Link></li>
-              <li><Link href="#" className="hover:text-[var(--warm-white)] transition-colors">Dev Blog</Link></li>
-              <li><Link href="#" className="hover:text-[var(--warm-white)] transition-colors">Press Kit</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-mono text-[var(--gold)] mb-8 opacity-90">Support</h4>
-            <ul className="space-y-4 text-sm text-white/60">
-              <li><Link href="#" className="hover:text-[var(--warm-white)] transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-[var(--warm-white)] transition-colors">Terms of Service</Link></li>
               <li><Link href="#contact" className="hover:text-[var(--warm-white)] transition-colors">Contact Us</Link></li>
             </ul>
           </div>

@@ -120,16 +120,19 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* ── z-20: Left social rail ── */}
+      {/* ── z-20: Social rail (Horizontal on mobile, Vertical on desktop) ── */}
       <div
-        className="absolute left-5 md:left-10 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center"
+        className="absolute bottom-24 left-1/2 -translate-x-1/2 md:bottom-auto md:left-5 lg:left-10 md:top-1/2 md:-translate-y-1/2 md:translate-x-0 z-20 flex flex-row md:flex-col items-center w-full md:w-auto justify-center md:justify-start"
         style={{ gap: 24 }}
       >
-        <div className="w-px bg-[rgba(255,255,255,0.1)]" style={{ height: 60 }} />
+        <div className="hidden md:block w-px bg-[rgba(255,255,255,0.1)]" style={{ height: 60 }} />
+        <div className="block md:hidden h-px bg-[rgba(255,255,255,0.1)]" style={{ width: 60 }} />
+        
         {/* Amber Ember circle accent */}
-        <div className="w-[18px] h-[18px] rounded-full border border-[var(--amber-ember)] flex items-center justify-center">
+        <div className="w-[18px] h-[18px] rounded-full border border-[var(--amber-ember)] flex items-center justify-center shrink-0">
           <div className="w-[6px] h-[6px] rounded-full bg-[var(--amber-ember)]" />
         </div>
+        
         {socialLinks.map((s) => (
           <a
             key={s.label}
@@ -142,7 +145,9 @@ export function HeroSection() {
             {s.icon}
           </a>
         ))}
-        <div className="w-px bg-[rgba(255,255,255,0.1)]" style={{ height: 60 }} />
+        
+        <div className="hidden md:block w-px bg-[rgba(255,255,255,0.1)]" style={{ height: 60 }} />
+        <div className="block md:hidden h-px bg-[rgba(255,255,255,0.1)]" style={{ width: 60 }} />
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════
@@ -166,9 +171,9 @@ export function HeroSection() {
 
         {/* CHRONOVALE */}
         <h1
-          className="font-display text-[var(--white-pure)] uppercase flex flex-wrap justify-center overflow-hidden"
+          className="font-display text-[var(--white-pure)] uppercase flex flex-nowrap justify-center overflow-hidden"
           style={{
-            fontSize:      'clamp(60px, 11vw, 150px)',
+            fontSize:      'clamp(32px, 11vw, 150px)',
             lineHeight:    0.95,
             letterSpacing: '0.02em',
             marginBottom:  0,
@@ -186,7 +191,7 @@ export function HeroSection() {
         <h2
           className="hero-studios font-display uppercase"
           style={{
-            fontSize:      'clamp(40px, 7vw, 100px)',
+            fontSize:      'clamp(24px, 7vw, 100px)',
             lineHeight:    1,
             letterSpacing: '0.08em',
             color:         'var(--text-secondary)',
