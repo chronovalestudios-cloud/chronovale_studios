@@ -39,6 +39,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
         lerp: 0.08, // Adjust lerp for buttery smoothness (0.05 - 0.1 is usually best)
         duration: 1.2, // Keep a comfortable base duration
         smoothWheel: true,
+        smoothTouch: false,
         wheelMultiplier: 1,
       }}
     >

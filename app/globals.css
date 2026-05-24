@@ -148,6 +148,7 @@
   
   html {
     background-color: var(--warm-black);
+    zoom: 90%;
   }
   
   body {

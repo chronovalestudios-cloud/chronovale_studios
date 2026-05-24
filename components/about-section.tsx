@@ -325,7 +325,7 @@ export function AboutSection() {
         {/* ── Scrolled Text Blocks ── */}
 
         {/* Text 1 (Left Side) */}
-        <div ref={text1Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6">
+        <div ref={text1Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6" style={{ willChange: 'filter, transform, opacity' }}>
           <h2 className="font-display text-[var(--white-pure)] text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight mb-4">
             FORGING THE <br />
             <span className="text-[var(--amber-ember)]">NEXT ERA</span>
@@ -336,7 +336,7 @@ export function AboutSection() {
         </div>
 
         {/* Text 2 (Right Side) */}
-        <div ref={text2Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right">
+        <div ref={text2Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right" style={{ willChange: 'filter, transform, opacity' }}>
           <div className="flex items-center justify-end gap-3 mb-4">
             <div className="w-8 h-px bg-[var(--amber-ember)]" />
             <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
@@ -349,7 +349,7 @@ export function AboutSection() {
         </div>
 
         {/* Text 3 (Left Side) */}
-        <div ref={text3Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6">
+        <div ref={text3Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6" style={{ willChange: 'filter, transform, opacity' }}>
           <div className="flex items-center justify-start gap-3 mb-4">
             <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
               CULTURAL ROOTS
@@ -362,7 +362,7 @@ export function AboutSection() {
         </div>
 
         {/* Text 4 (Right Side) */}
-        <div ref={text4Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right">
+        <div ref={text4Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right" style={{ willChange: 'filter, transform, opacity' }}>
           <div className="flex items-center justify-end gap-3 mb-4">
             <div className="w-8 h-px bg-[var(--amber-ember)]" />
             <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">

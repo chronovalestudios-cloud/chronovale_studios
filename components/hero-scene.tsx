@@ -2,6 +2,7 @@
 
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { useInView } from 'framer-motion'
 import {
   Float,
   MeshDistortMaterial,
@@ -308,12 +309,16 @@ function Scene() {
 }
 
 export function HeroScene() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef)
+
   return (
-    <div className="absolute inset-0 z-0">
+    <div ref={containerRef} className="absolute inset-0 z-0">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 50 }}
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 2]}
+        frameloop={isInView ? 'always' : 'demand'}
       >
         <Scene />
       </Canvas>
