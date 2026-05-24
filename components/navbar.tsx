@@ -75,7 +75,7 @@ export function Navbar() {
   // Raw transforms — header shrinks as user scrolls
   const rawTop         = useTransform(scrollY, [0, 120], [20,  12])
   const rawMarginX     = useTransform(scrollY, [0, 120], [20, 120])
-  const rawHeight      = useTransform(scrollY, [0, 120], [60,  46])
+  const rawHeight      = useTransform(scrollY, [0, 120], [100, 76])
   const rawRadius      = useTransform(scrollY, [0, 120], [ 4,  30])
   const rawBg          = useTransform(scrollY, [0, 120], [0.2, 0.82])
   const rawBlur        = useTransform(scrollY, [0, 120], [8,   24])
@@ -123,7 +123,7 @@ export function Navbar() {
           top:           isOpen ? 20 : top,
           left:          isOpen ? 20 : marginX,
           right:         isOpen ? 20 : marginX,
-          height:        isOpen ? 58 : height,
+          height:        isOpen ? 100 : height,
           borderRadius:  isOpen ?  4 : radius,
           backgroundColor: isOpen ? 'rgba(10,10,10,0.92)' : bgColor,
           backdropFilter:        isOpen ? 'blur(20px)' : blur,
@@ -139,9 +139,13 @@ export function Navbar() {
             {/* Logo */}
             <button
               onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-              className="cursor-target font-display text-[20px] tracking-[0.08em] text-[#F5F0E8] hover:text-[#FF6B00] transition-colors duration-200 uppercase z-[60] relative"
+              className="cursor-target z-[60] relative flex items-center h-full"
             >
-              CHRONOVALE
+              <img 
+                src="/assets/logo_white.png" 
+                alt="Chronovale Studios" 
+                className="h-12 md:h-[4.5rem] w-auto object-contain transition-transform duration-300 hover:scale-[1.03] scale-105 origin-left"
+              />
             </button>
 
             {/* Hamburger — always visible */}

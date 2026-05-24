@@ -45,8 +45,8 @@ function KintsugiDivider() {
    §3.1 — Yantra / Mandala SVG (Now Highly Visible & Colored)
    ══════════════════════════════════════════════════════════════ */
 function Yantra({ triggerEl }: { triggerEl: React.RefObject<HTMLElement | null> }) {
-  const svgRef    = useRef<SVGSVGElement>(null)
-  const binduRef  = useRef<SVGCircleElement>(null)
+  const svgRef = useRef<SVGSVGElement>(null)
+  const binduRef = useRef<SVGCircleElement>(null)
   const binduRingRef = useRef<SVGCircleElement>(null)
 
   useEffect(() => {
@@ -56,7 +56,7 @@ function Yantra({ triggerEl }: { triggerEl: React.RefObject<HTMLElement | null> 
     /* ── Measure circle circumferences ── */
     const outerCircles = Array.from(svgRef.current.querySelectorAll<SVGCircleElement>('circle[data-layer="outer"]'))
     const innerCircles = Array.from(svgRef.current.querySelectorAll<SVGCircleElement>('circle[data-layer="inner"]'))
-    const lines        = Array.from(svgRef.current.querySelectorAll<SVGLineElement>('line[data-draw]'))
+    const lines = Array.from(svgRef.current.querySelectorAll<SVGLineElement>('line[data-draw]'))
 
     const prepare = (el: SVGGeometryElement) => {
       const len = el.getTotalLength()
@@ -83,7 +83,7 @@ function Yantra({ triggerEl }: { triggerEl: React.RefObject<HTMLElement | null> 
       drawTl.to(outerCircles, { strokeDashoffset: 0, duration: 2.5, stagger: 0.2, ease: 'power2.out' }, 0)
       /* Inner geometry + lines */
       drawTl.to(innerCircles, { strokeDashoffset: 0, duration: 1.5, stagger: 0.15, ease: 'power2.out' }, 0.5)
-      drawTl.to(lines,        { strokeDashoffset: 0, duration: 1.2, stagger: 0.04, ease: 'power2.out' }, 0.5)
+      drawTl.to(lines, { strokeDashoffset: 0, duration: 1.2, stagger: 0.04, ease: 'power2.out' }, 0.5)
       /* Bindu appears last */
       drawTl.to([binduRef.current, binduRingRef.current], { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }, 2)
 
@@ -119,8 +119,8 @@ function Yantra({ triggerEl }: { triggerEl: React.RefObject<HTMLElement | null> 
       <circle data-layer="outer" cx="250" cy="250" r="140" stroke={chakraColor} strokeWidth="2" opacity="0.7" />
 
       {/* ── Inner rings ── */}
-      <circle data-layer="inner" cx="250" cy="250" r="95"  stroke={chakraColor} strokeWidth="1.2" opacity="0.6"  />
-      <circle data-layer="inner" cx="250" cy="250" r="55"  stroke={chakraColor} strokeWidth="2"   opacity="0.8" />
+      <circle data-layer="inner" cx="250" cy="250" r="95" stroke={chakraColor} strokeWidth="1.2" opacity="0.6" />
+      <circle data-layer="inner" cx="250" cy="250" r="55" stroke={chakraColor} strokeWidth="2" opacity="0.8" />
 
       {/* ── 16 Radial lines: r=55 → r=225 ── */}
       {radials.map((i) => (
@@ -164,7 +164,7 @@ function Yantra({ triggerEl }: { triggerEl: React.RefObject<HTMLElement | null> 
 
       {/* ── Bindu — center ── */}
       <circle ref={binduRingRef} cx="250" cy="250" r="16" stroke="#FFFFFF" strokeWidth="1.5" fill="none" opacity="0.8" />
-      <circle ref={binduRef}     cx="250" cy="250" r="7"  fill="#FFFFFF" opacity="1" />
+      <circle ref={binduRef} cx="250" cy="250" r="7" fill="#FFFFFF" opacity="1" />
     </svg>
   )
 }
@@ -173,17 +173,17 @@ function Yantra({ triggerEl }: { triggerEl: React.RefObject<HTMLElement | null> 
    ABOUT SECTION — main export
    ══════════════════════════════════════════════════════════════ */
 export function AboutSection() {
-  const sectionRef    = useRef<HTMLElement>(null)
-  const pinWrapRef    = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const pinWrapRef = useRef<HTMLDivElement>(null)
   const chakraWrapRef = useRef<HTMLDivElement>(null)
-  
-  const text1Ref      = useRef<HTMLDivElement>(null)
-  const text2Ref    = useRef<HTMLDivElement>(null)
-  const text3Ref    = useRef<HTMLDivElement>(null)
-  const text4Ref    = useRef<HTMLDivElement>(null)
 
-  const statsRef    = useRef<HTMLDivElement>(null)
-  const yearSpan    = useRef<HTMLSpanElement>(null)
+  const text1Ref = useRef<HTMLDivElement>(null)
+  const text2Ref = useRef<HTMLDivElement>(null)
+  const text3Ref = useRef<HTMLDivElement>(null)
+  const text4Ref = useRef<HTMLDivElement>(null)
+
+  const statsRef = useRef<HTMLDivElement>(null)
+  const yearSpan = useRef<HTMLSpanElement>(null)
   const percentSpan = useRef<HTMLSpanElement>(null)
   const progressRef = useRef<HTMLDivElement>(null)
   const infinityRef = useRef<HTMLSpanElement>(null)
@@ -191,7 +191,7 @@ export function AboutSection() {
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const ctx = gsap.context(() => {
-      
+
       if (!reduced) {
         // Master scroll scrubbing timeline for the text blocks around the Chakra
         const tl = gsap.timeline({
@@ -213,9 +213,9 @@ export function AboutSection() {
         texts.forEach((text, i) => {
           // Animate IN
           tl.to(text.current, { opacity: 1, y: 0, filter: "blur(0px)", duration: 1 })
-          
+
           // Hold duration so the user can read it
-          tl.to({}, { duration: 0.8 }) 
+          tl.to({}, { duration: 0.8 })
 
           // Animate OUT
           tl.to(text.current, { opacity: 0, y: -80, filter: "blur(10px)", duration: 1 })
@@ -287,94 +287,94 @@ export function AboutSection() {
 
   const features = [
     { label: 'NARRATIVE FIRST', desc: 'Every game begins with a story worth telling — emotional depth and meaningful choices above all else.' },
-    { label: 'CULTURAL ROOTS',  desc: "Drawing from India's 5000-year mythology, we weave authentic elements into modern gameplay." },
-    { label: 'GLOBAL VISION',   desc: 'Built in India, crafted for players everywhere. Great stories are always universal.' },
+    { label: 'CULTURAL ROOTS', desc: "Drawing from India's 5000-year mythology, we weave authentic elements into modern gameplay." },
+    { label: 'GLOBAL VISION', desc: 'Built in India, crafted for players everywhere. Great stories are always universal.' },
   ]
 
   return (
-      <section
-        ref={sectionRef}
-        id="about"
-        className="about-section relative bg-[var(--warm-black)]"
-      >
-        {/* ── Kintsugi divider ── */}
-        <KintsugiDivider />
-  
-        {/* ── Pinned Chakra & Text Section ── */}
-        <div ref={pinWrapRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-          
-          {/* Interactive Cinematic Background */}
-          <GodRays className="opacity-40" />
-          <Particles quantity={150} color="#FF6B00" className="opacity-80" />
-          
-          {/* Soft Ambient Glows behind Chakra */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--amber-ember)] rounded-full blur-[150px] opacity-[0.08] pointer-events-none" />
-  
-          {/* Static Tag */}
-          <div className="absolute top-24 left-1/2 -translate-x-1/2 z-20 px-6 py-2 border border-[var(--amber-ember)] rounded-full bg-black/20 backdrop-blur-sm">
-            <span className="font-display text-[var(--amber-ember)] text-sm tracking-[0.2em] uppercase">
-              ◈ Who We Are
-            </span>
-          </div>
-  
-          {/* The Fixed Spinning Chakra */}
-          <div ref={chakraWrapRef} className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-            <Yantra triggerEl={sectionRef} />
-          </div>
-  
-          {/* ── Scrolled Text Blocks ── */}
-          
-          {/* Text 1 (Left Side) */}
-          <div ref={text1Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6">
-            <h2 className="font-display text-[var(--white-pure)] text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight mb-4">
-              FORGING THE <br/>
-              <span className="text-[var(--amber-ember)]">NEXT ERA</span>
-            </h2>
-            <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
-              Chronovale Studios is an independent game studio from India — crafting interactive narratives that bridge 5000 years of mythology with the future of play.
-            </p>
-          </div>
-  
-          {/* Text 2 (Right Side) */}
-          <div ref={text2Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right">
-            <div className="flex items-center justify-end gap-3 mb-4">
-              <div className="w-8 h-px bg-[var(--amber-ember)]" />
-              <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
-                NARRATIVE FIRST
-              </h3>
-            </div>
-            <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
-              Every game begins with a story worth telling — emotional depth and meaningful choices above all else.
-            </p>
-          </div>
-  
-          {/* Text 3 (Left Side) */}
-          <div ref={text3Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6">
-            <div className="flex items-center justify-start gap-3 mb-4">
-              <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
-                CULTURAL ROOTS
-              </h3>
-              <div className="w-8 h-px bg-[var(--amber-ember)]" />
-            </div>
-            <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
-              Drawing from India's 5000-year mythology, we weave authentic elements into modern gameplay.
-            </p>
-          </div>
-  
-          {/* Text 4 (Right Side) */}
-          <div ref={text4Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right">
-            <div className="flex items-center justify-end gap-3 mb-4">
-              <div className="w-8 h-px bg-[var(--amber-ember)]" />
-              <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
-                GLOBAL VISION
-              </h3>
-            </div>
-            <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
-              Built in India, crafted for players everywhere. Great stories are always universal.
-            </p>
-          </div>
-  
+    <section
+      ref={sectionRef}
+      id="about"
+      className="about-section relative bg-[var(--warm-black)]"
+    >
+      {/* ── Kintsugi divider ── */}
+      <KintsugiDivider />
+
+      {/* ── Pinned Chakra & Text Section ── */}
+      <div ref={pinWrapRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+
+        {/* Interactive Cinematic Background */}
+        <GodRays className="opacity-40" />
+        <Particles quantity={150} color="#FF6B00" className="opacity-80" />
+
+        {/* Soft Ambient Glows behind Chakra */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--amber-ember)] rounded-full blur-[150px] opacity-[0.08] pointer-events-none" />
+
+        {/* Static Tag */}
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 z-20 px-6 py-2 border border-[var(--amber-ember)] rounded-full bg-black/20 backdrop-blur-sm">
+          <span className="font-display text-[var(--amber-ember)] text-sm tracking-[0.2em] uppercase">
+            ◈ Who We Are
+          </span>
         </div>
+
+        {/* The Fixed Spinning Chakra */}
+        <div ref={chakraWrapRef} className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <Yantra triggerEl={sectionRef} />
+        </div>
+
+        {/* ── Scrolled Text Blocks ── */}
+
+        {/* Text 1 (Left Side) */}
+        <div ref={text1Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6">
+          <h2 className="font-display text-[var(--white-pure)] text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight mb-4">
+            FORGING THE <br />
+            <span className="text-[var(--amber-ember)]">NEXT ERA</span>
+          </h2>
+          <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
+            Chronovale Studios is an independent game studio from India — crafting interactive narratives that bridge 5000 years of mythology with the future of play.
+          </p>
+        </div>
+
+        {/* Text 2 (Right Side) */}
+        <div ref={text2Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right">
+          <div className="flex items-center justify-end gap-3 mb-4">
+            <div className="w-8 h-px bg-[var(--amber-ember)]" />
+            <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
+              NARRATIVE FIRST
+            </h3>
+          </div>
+          <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
+            Every game begins with a story worth telling — emotional depth and meaningful choices above all else.
+          </p>
+        </div>
+
+        {/* Text 3 (Left Side) */}
+        <div ref={text3Ref} className="absolute left-[5%] md:left-[10%] lg:left-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6">
+          <div className="flex items-center justify-start gap-3 mb-4">
+            <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
+              CULTURAL ROOTS
+            </h3>
+            <div className="w-8 h-px bg-[var(--amber-ember)]" />
+          </div>
+          <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
+            Drawing from India's 5000-year mythology, we weave authentic elements into modern gameplay.
+          </p>
+        </div>
+
+        {/* Text 4 (Right Side) */}
+        <div ref={text4Ref} className="absolute right-[5%] md:right-[10%] lg:right-[15%] top-1/2 -translate-y-1/2 max-w-md z-10 p-6 text-right">
+          <div className="flex items-center justify-end gap-3 mb-4">
+            <div className="w-8 h-px bg-[var(--amber-ember)]" />
+            <h3 className="font-display text-[var(--white-pure)] text-4xl md:text-5xl lg:text-6xl tracking-wide">
+              GLOBAL VISION
+            </h3>
+          </div>
+          <p className="font-sans text-lg text-[var(--white-muted)] leading-relaxed">
+            Built in India, crafted for players everywhere. Great stories are always universal.
+          </p>
+        </div>
+
+      </div>
 
       {/* ── Bottom Stats Bar ── */}
       <div
@@ -428,7 +428,7 @@ export function AboutSection() {
           </div>
 
           <span className="font-mono text-xs tracking-[0.2em] text-white/30 uppercase hidden lg:block">
-            BENGALURU, INDIA
+            MUMBAI, INDIA
           </span>
         </div>
       </div>

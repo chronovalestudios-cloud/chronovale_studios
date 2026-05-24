@@ -28,15 +28,15 @@ const team = [
 export function LeadershipSection() {
   return (
     <section id="team" className="py-32 bg-bg-deep relative overflow-hidden min-h-screen flex flex-col justify-center">
-      
+
       {/* Cinematic Background Animations */}
       <GodRays className="opacity-40" />
       <Particles quantity={150} color="#FF6B00" className="opacity-50" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,var(--gold),transparent)] opacity-30" />
-      
+
       <div className="w-full relative z-10">
-        
+
         <div className="flex flex-col items-center mb-24 text-center max-w-[1280px] mx-auto px-6">
           <SectionLabel>LEADERSHIP</SectionLabel>
           <h2 className="text-h1 text-warm-white">
@@ -47,9 +47,9 @@ export function LeadershipSection() {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 lg:gap-32 w-full max-w-[1800px] mx-auto px-6 lg:px-16">
           {team.map((member, i) => (
             <div key={member.name} className="flex flex-col md:flex-row items-center md:items-start gap-8">
-              
+
               {/* Photo Side - Left (or Top on smaller screens) */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, filter: 'blur(20px)', y: 40 }}
                 whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -59,7 +59,7 @@ export function LeadershipSection() {
                 {/* South Indian Decorative Frame */}
                 <div className="absolute -inset-4 border border-[var(--gold)] opacity-30 rounded-xl pointer-events-none" />
                 <div className="absolute -inset-6 border border-dashed border-[var(--gold)] opacity-20 rounded-xl pointer-events-none" />
-                
+
                 {/* Corner Lotuses */}
                 <div className="absolute -top-6 -left-6 w-6 h-6 text-[var(--gold)] opacity-80"><AnimatedLotus /></div>
                 <div className="absolute -top-6 -right-6 w-6 h-6 text-[var(--gold)] opacity-80"><AnimatedLotus /></div>

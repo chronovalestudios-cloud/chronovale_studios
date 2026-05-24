@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Lenis from 'lenis'
+import { ReactLenis, useLenis } from 'lenis/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -11,35 +11,38 @@ if (typeof window !== 'undefined') {
 }
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
-  const lenisRef = useRef<Lenis | null>(null)
+  const lenisRef = useRef<any>(null)
+
+  // Sync Lenis scroll with GSAP ScrollTrigger
+  useLenis(ScrollTrigger.update)
 
   useEffect(() => {
-    // Initialize Lenis with design.md specs
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      smoothWheel: true,
-    })
+    function update(time: number) {
+      lenisRef.current?.lenis?.raf(time * 1000)
+    }
 
-    lenisRef.current = lenis
-
-    // Sync Lenis with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update)
-
-    // Add Lenis to GSAP ticker
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000)
-    })
-    
-    // Disable lag smoothing for perfect sync
+    gsap.ticker.add(update)
+    // Disable lag smoothing for perfect sync with ScrollTrigger
     gsap.ticker.lagSmoothing(0)
 
     return () => {
-      gsap.ticker.remove(lenis.raf)
-      lenis.destroy()
+      gsap.ticker.remove(update)
     }
   }, [])
 
-  return <>{children}</>
+  return (
+    <ReactLenis
+      ref={lenisRef}
+      root
+      options={{
+        autoRaf: false, // Let GSAP ticker drive the RAF loop for perfect sync
+        lerp: 0.08, // Adjust lerp for buttery smoothness (0.05 - 0.1 is usually best)
+        duration: 1.2, // Keep a comfortable base duration
+        smoothWheel: true,
+        wheelMultiplier: 1,
+      }}
+    >
+      {children}
+    </ReactLenis>
+  )
 }
