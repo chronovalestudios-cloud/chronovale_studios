@@ -77,10 +77,45 @@ export function ContactSection() {
     email: '',
     message: '',
   })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // handle form
+    if (!formState.name || !formState.email || !formState.message) {
+      setErrorMessage('Please fill in all required fields.')
+      setStatus('error')
+      return
+    }
+
+    setStatus('loading')
+    setErrorMessage('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formState,
+          type: selectedType
+        })
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setStatus('success')
+      setFormState({ name: '', email: '', message: '' })
+      setSelectedType('')
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch (err) {
+      console.error(err)
+      setStatus('error')
+      setErrorMessage('Something went wrong. Please try again.')
+    }
   }
 
   return (
@@ -166,9 +201,20 @@ export function ContactSection() {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full h-14 mt-8 text-[16px]">
-                    SEND TRANSMISSION
+                  <Button 
+                    type="submit" 
+                    disabled={status === 'loading'}
+                    className="w-full h-14 mt-8 text-[16px] disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === 'loading' ? 'SENDING TRANSMISSION...' : status === 'success' ? 'TRANSMISSION SENT' : 'SEND TRANSMISSION'}
                   </Button>
+
+                  {status === 'error' && (
+                    <p className="text-red-500 text-sm mt-4 text-center font-mono">{errorMessage}</p>
+                  )}
+                  {status === 'success' && (
+                    <p className="text-[var(--gold)] text-sm mt-4 text-center font-mono">Message sent successfully!</p>
+                  )}
                 </form>
               </SpotlightCard>
             </div>

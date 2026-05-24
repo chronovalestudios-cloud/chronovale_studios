@@ -1,10 +1,36 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react'
 
 export function Footer() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  const handleSubscribe = async () => {
+    if (!email) return
+    setStatus('loading')
+    
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+
+      if (!res.ok) throw new Error('Failed to subscribe')
+
+      setStatus('success')
+      setEmail('')
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch (err) {
+      console.error(err)
+      setStatus('error')
+    }
+  }
+
   return (
     <footer className="relative bg-[#0A0806] pt-16 pb-6 overflow-hidden border-t border-[var(--gold)]/20">
 
@@ -29,17 +55,43 @@ export function Footer() {
             <div className="relative border-b border-white/20 pb-3 mb-3 flex items-center group">
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+                disabled={status === 'loading'}
                 placeholder="your.email@mail.com"
-                className="bg-transparent w-full text-sm outline-none text-[var(--warm-white)] placeholder:text-white/30"
+                className="bg-transparent w-full text-sm outline-none text-[var(--warm-white)] placeholder:text-white/30 disabled:opacity-50"
               />
-              <button className="text-white/50 group-hover:text-[var(--gold)] transition-colors">
-                <ArrowRight className="w-4 h-4" />
+              <button 
+                onClick={handleSubscribe}
+                disabled={status === 'loading'}
+                className="text-white/50 group-hover:text-[var(--gold)] transition-colors disabled:opacity-50"
+              >
+                {status === 'loading' ? (
+                  <div className="w-4 h-4 border-2 border-[var(--gold)] border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <ArrowRight className="w-4 h-4" />
+                )}
               </button>
             </div>
 
-            <p className="text-[9px] text-white/40 uppercase tracking-widest mb-12 font-mono">
-              I accept the conditions
-            </p>
+            <div className="h-4 mb-8">
+              {status === 'success' && (
+                <p className="text-[10px] text-[var(--gold)] uppercase tracking-widest font-mono">
+                  Subscribed successfully!
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-[10px] text-red-500 uppercase tracking-widest font-mono">
+                  Failed to subscribe.
+                </p>
+              )}
+              {status === 'idle' && status !== 'error' && status !== 'success' && (
+                <p className="text-[9px] text-white/40 uppercase tracking-widest font-mono">
+                  I accept the conditions
+                </p>
+              )}
+            </div>
           </div>
 
           <div className="flex gap-6 mt-8 md:mt-0">
