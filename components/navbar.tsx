@@ -93,9 +93,9 @@ export function Navbar() {
 
   const rawHeight      = useTransform(scrollY, [0, 120], [100, 76])
   const rawRadius      = useTransform(scrollY, [0, 120], [ 4,  30])
-  const rawBg          = useTransform(scrollY, [0, 120], [0.2, 0.82])
-  const rawBlur        = useTransform(scrollY, [0, 120], [8,   24])
-  const rawBorder      = useTransform(scrollY, [0, 120], [0.04, 0.12])
+  const rawBg          = useTransform(scrollY, [0, 120], [0.1, 0.4])
+  const rawBlur        = useTransform(scrollY, [0, 120], [12, 32])
+  const rawBorder      = useTransform(scrollY, [0, 120], [0.08, 0.2])
   const rawShadow      = useTransform(scrollY, [0, 120], [0,    0.5])
 
   // Apply spring physics for fluid, organic feel
@@ -141,10 +141,10 @@ export function Navbar() {
           right:         isOpen ? 20 : marginX,
           height:        isOpen ? 100 : height,
           borderRadius:  isOpen ?  4 : radius,
-          backgroundColor: isOpen ? 'rgba(10,10,10,0.92)' : bgColor,
-          backdropFilter:        isOpen ? 'blur(20px)' : blur,
-          WebkitBackdropFilter:  isOpen ? 'blur(20px)' : blur,
-          border:    isOpen ? '1px solid rgba(255,255,255,0.1)' : border,
+          backgroundColor: isOpen ? 'rgba(10,10,10,0.4)' : bgColor,
+          backdropFilter:        isOpen ? 'blur(32px)' : blur,
+          WebkitBackdropFilter:  isOpen ? 'blur(32px)' : blur,
+          border:    isOpen ? '1px solid rgba(255,255,255,0.15)' : border,
           boxShadow: isOpen ? '0 8px 40px rgba(0,0,0,0.5)'     : shadow,
           overflow: 'hidden',
         }}

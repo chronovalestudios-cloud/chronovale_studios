@@ -26,12 +26,12 @@ export function Marquee({
         className
       )}
     >
-      {[...Array(2)].map((_, i) => (
+      {[...Array(4)].map((_, i) => (
         <motion.div
           key={i}
           className="marquee-content flex shrink-0 [gap:var(--gap)]"
           animate={{
-            x: reverse ? ["0%", "100%"] : ["0%", "-100%"],
+            x: reverse ? ["-100%", "0%"] : ["0%", "-100%"],
           }}
           transition={{
             duration,

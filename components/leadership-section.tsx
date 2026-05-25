@@ -38,7 +38,7 @@ export function LeadershipSection() {
       <div className="w-full relative z-10">
 
         <div className="flex flex-col items-center mb-24 text-center max-w-[1280px] mx-auto px-6">
-          <SectionLabel>LEADERSHIP</SectionLabel>
+          <SectionLabel className="justify-center">LEADERSHIP</SectionLabel>
           <h2 className="text-h1 text-warm-white">
             The minds behind the <span className="text-[var(--gold)]">mythos</span>
           </h2>
@@ -86,16 +86,16 @@ export function LeadershipSection() {
               {/* Text Side - Right (or Bottom) */}
               <div className="flex flex-col text-center md:text-left mt-8 md:mt-0 flex-1">
                 <h3 className="text-4xl lg:text-5xl font-display text-[var(--warm-white)] mb-4 whitespace-nowrap">
-                  <BlurText text={member.name} delay={i * 0.2} />
+                  <BlurText text={member.name} delay={i * 0.2} className="justify-center md:justify-start" />
                 </h3>
                 <div className="text-xs lg:text-sm tracking-widest text-[var(--gold)] font-mono uppercase mb-8 opacity-80">
-                  <BlurText text={member.role} delay={i * 0.2 + 0.1} />
+                  <BlurText text={member.role} delay={i * 0.2 + 0.1} className="justify-center md:justify-start" />
                 </div>
                 <div className="text-xl lg:text-2xl text-[var(--text-primary)] font-serif italic mb-6 leading-relaxed pr-4">
-                  <BlurText text={member.quote} delay={i * 0.2 + 0.2} />
+                  <BlurText text={member.quote} delay={i * 0.2 + 0.2} className="justify-center md:justify-start" />
                 </div>
                 <div className="text-base lg:text-lg text-[var(--text-secondary)] font-sans leading-relaxed pr-4">
-                  <BlurText text={member.description} delay={i * 0.2 + 0.3} />
+                  <BlurText text={member.description} delay={i * 0.2 + 0.3} className="justify-center md:justify-start" />
                 </div>
               </div>
 

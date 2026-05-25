@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
 import TargetCursor from '@/components/ui/TargetCursor'
+import { ScrollToTop } from '@/components/scroll-to-top'
 
 // Display font - Hero headlines, studio wordmark
 const cinzel = Cinzel({ 
@@ -76,6 +77,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>
+        <ScrollToTop />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

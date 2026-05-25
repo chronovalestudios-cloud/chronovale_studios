@@ -18,8 +18,8 @@ export function GamesSection() {
       <div className="absolute top-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,var(--gold),transparent)] opacity-30" />
 
       {/* Header */}
-      <div className="text-center mb-16 px-6 relative z-20">
-        <SectionLabel>OUR GAMES</SectionLabel>
+      <div className="text-center mb-16 px-6 relative z-20 flex flex-col items-center">
+        <SectionLabel className="justify-center">OUR GAMES</SectionLabel>
         <h2 className="text-h1 text-warm-white">
           Worlds in <span className="text-[var(--gold)]">Progress</span>
         </h2>

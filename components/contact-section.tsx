@@ -135,9 +135,9 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-16 flex flex-col items-center"
         >
-          <SectionLabel>CONTACT</SectionLabel>
+          <SectionLabel className="justify-center">CONTACT</SectionLabel>
           <h2 className="text-h1 text-[var(--warm-white)]">
             Let&apos;s build something <span className="text-[var(--gold)]">meaningful</span>
           </h2>
