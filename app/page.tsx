@@ -24,8 +24,8 @@ export default function HomePage() {
       <VisionSection />
       <SectionDivider variant="geometric-floral" />
       <GamesSection />
-      <SectionDivider variant="fringe" />
-      <LeadershipSection />
+      {/* <SectionDivider variant="fringe" />
+      <LeadershipSection /> */}
       <SectionDivider variant="block-floral" flip />
       <ContactSection />
       <Footer />
